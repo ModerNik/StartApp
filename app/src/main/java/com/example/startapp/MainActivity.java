@@ -6,6 +6,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 
 import androidx.navigation.NavController;
@@ -18,14 +19,22 @@ import com.example.startapp.databinding.ActivityMainBinding;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import android.widget.Toast;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
+    private final String TAG = this.getClass().getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        Toast toast = Toast.makeText(getApplicationContext(), "onCreate Toast", Toast.LENGTH_LONG);
+        toast.show();
+        String Tag;
+        Log.d(TAG, "onCreate Toast");
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -73,4 +82,53 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    @Override
+    protected void onStart()  {
+        super.onStart();
+        Toast toast = Toast.makeText(getApplicationContext() , "onStart Toast" , Toast.LENGTH_LONG);
+        toast.show();
+        Log.d(TAG, "onStart Toast");
+    }
+
+    @Override
+    protected void onResume()  {
+        super.onResume();
+        Toast toast = Toast.makeText(getApplicationContext() , "onResume Toast" , Toast.LENGTH_LONG);
+        toast.show();
+        Log.d(TAG, "onResume Toast");
+    }
+
+    @Override
+    protected void onPause()  {
+        super.onPause();
+        Toast toast = Toast.makeText(getApplicationContext() , "onPause Toast" , Toast.LENGTH_LONG);
+        toast.show();
+        Log.d(TAG, "onPause Toast");
+    }
+
+    @Override
+    protected void onStop()  {
+        super.onStop();
+        Toast toast = Toast.makeText(getApplicationContext() , "onStop Toast" , Toast.LENGTH_LONG);
+        toast.show();
+        Log.d(TAG, "onStop Toast");
+    }
+
+    @Override
+    protected void onRestart()  {
+        super.onRestart();
+        Toast toast = Toast.makeText(getApplicationContext() , "onRestart Toast" , Toast.LENGTH_LONG);
+        toast.show();
+        Log.d(TAG, "onRestart Toast");
+    }
+
+    @Override
+    protected void onDestroy()  {
+        super.onDestroy();
+        Toast toast = Toast.makeText(getApplicationContext() , "onDestroy Toast" , Toast.LENGTH_LONG);
+        toast.show();
+        Log.d(TAG, "onDestroy Toast");
+    }
+
 }
